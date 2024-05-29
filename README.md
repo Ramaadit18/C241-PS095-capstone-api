@@ -5,7 +5,7 @@ This Repository contains the source code of the APIs that are being used to deve
 
 ### Get User by Id
 - Method: `GET`
-- Path: `/users/{id}`
+- Path: `/users/{userId}`
 - Description: Retrieve User data based on the UserId
 - Response Body:
 
@@ -14,7 +14,7 @@ This Repository contains the source code of the APIs that are being used to deve
     "status": "success",
     "data": {
         "user": {
-            "usereId": "<userId>",
+            "userId": "<userId>",
             "username": "<username>"
         }
     }

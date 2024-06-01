@@ -21,14 +21,14 @@ This Repository contains the source code of the APIs that are being used to deve
   
   ```json
   {
-  "status": "success",
-  "message": "User created successfully",
-  "data": {
-      "id": "<id>",
-      "username": "<username>",
-      "email": "<email>",
-      "createdAt": "<createdAt>"
-    }
+    "status": "success",
+    "message": "User created successfully",
+    "data": {
+        "id": "<id>",
+        "username": "<username>",
+        "email": "<email>",
+        "createdAt": "<createdAt>"
+      }
   }
   ```
 
@@ -40,22 +40,22 @@ This Repository contains the source code of the APIs that are being used to deve
 
   ```json
   {
-  "status": "success",
-  "message": "Users retrieved successfully",
-  "data": [
-      {
-          "id": "<id>",
-          "username": "<username>",
-          "email": "<email>",
-          "createdAt": "<createdAt>"
-      },
-      {
-          "id": "<id>",
-          "username": "<username>",
-          "email": "<email>",
-          "createdAt": "<createdAt>"
-      },
-      ...
+    "status": "success",
+    "message": "Users retrieved successfully",
+    "data": [
+        {
+            "id": "<id>",
+            "username": "<username>",
+            "email": "<email>",
+            "createdAt": "<createdAt>"
+        },
+        {
+            "id": "<id>",
+            "username": "<username>",
+            "email": "<email>",
+            "createdAt": "<createdAt>"
+        },
+        ...
     ]
   }
   ```
@@ -116,7 +116,7 @@ This Repository contains the source code of the APIs that are being used to deve
 
   ```json
   {
-  "status": "success",
-  "message": "User deleted successfully"
+    "status": "success",
+    "message": "User deleted successfully"
   }
   ```

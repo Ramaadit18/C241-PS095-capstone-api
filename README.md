@@ -81,7 +81,7 @@ This Repository contains the source code of the APIs that are being used to deve
 
 ### Update Username
 - Method: PATCH
-- Path: `/users/{id}`
+- Path: `/users/username/{id}`
 - Description: Update username based on the id (require token in the header).
 - Request Body:
   
@@ -102,7 +102,7 @@ This Repository contains the source code of the APIs that are being used to deve
 
 ### Update Email
 - Method: PATCH
-- Path: `/users/{id}`
+- Path: `/users/email/{id}`
 - Description: Update user email based on the id (require token in the header).
 - Request Body:
   
@@ -123,7 +123,7 @@ This Repository contains the source code of the APIs that are being used to deve
 
 ### Update Password
 - Method: PATCH
-- Path: `/users/{id}`
+- Path: `/users/password/{id}`
 - Description: Update user password based on the id (require token in the header).
 - Request Body:
   

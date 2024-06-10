@@ -1,6 +1,5 @@
 const { firestore } = require('../firebase');
 const jwt = require('jsonwebtoken');
-// const bcrypt = require('bcrypt');
 
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 
@@ -31,12 +30,17 @@ const login = async (req, res) => {
     // const { accessToken, refreshToken } = generateTokens(userData);
 
     // Generate JWT token
-    const token = jwt.sign({ id: userData.id, email: userData.email }, JWT_SECRET_KEY, { expiresIn: '1h' });
+    const token = jwt.sign({ id: userData.id, email: userData.email, username:userData.username }, JWT_SECRET_KEY, { expiresIn: '1h' });
 
     return res.status(200).json({
       status: 'success',
       message: 'User logged in successfully',
       token,
+      user: {
+        id: userData.id,
+        username: userData.username,
+        email: userData.email,
+      }
     });
   } catch (error) {
     return res.status(500).json({

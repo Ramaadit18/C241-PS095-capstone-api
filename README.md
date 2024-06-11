@@ -1,9 +1,8 @@
 # C241-PS095 
 This Repository contains the source code of the APIs that are being used to develop our Capstone Project <br>
 
-## Header 
-key   : Authorization <br>
-value : (token)
+## Token
+The token is created using JWT and has user_id as the payload
 
 ## User
 
@@ -67,7 +66,10 @@ value : (token)
 ### Get User by Id
 - Method: GET
 - Path: `users/{id}`
-- Description: Retrieve user data based on the id (require token in the header).
+- Description: Retrieve user data based on the id.
+- Request Header: <br>
+Key   : Authorization <br>
+Value : (token)
 - Response Body:
 
   ```json
@@ -107,7 +109,10 @@ value : (token)
 ### Update Email
 - Method: PATCH
 - Path: `/users/email/{id}`
-- Description: Update user email based on the id (require token in the header).
+- Description: Update user email based on the id.
+- Request Header: <br>
+Key   : Authorization <br>
+Value : (token)
 - Request Body:
   
   ```json
@@ -128,7 +133,10 @@ value : (token)
 ### Update Password
 - Method: PATCH
 - Path: `/users/password/{id}`
-- Description: Update user password based on the id (require token in the header).
+- Description: Update user password based on the id.
+- Request Header: <br>
+Key   : Authorization <br>
+Value : (token)
 - Request Body:
   
   ```json
@@ -149,7 +157,10 @@ value : (token)
 ### Delete User
 - Method: DELETE
 - Path: `/users/{id}`
-- Description: Delete user from database based on the id (require token in the header).
+- Description: Delete user from database based on the id.
+- Request Header: <br>
+Key   : Authorization <br>
+Value : (token)
 - Response Body:
 
   ```json
@@ -189,7 +200,10 @@ value : (token)
 ### Logout
 - Method: POST
 - Path: `auth/logout`
-- Description: Sign out the User from the application (require token in the header).
+- Description: Sign out the User from the application.
+- Request Header: <br>
+Key   : Authorization <br>
+Value : (token)
 - Response Body:
 
   ```json

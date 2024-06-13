@@ -193,7 +193,12 @@ Value : (token)
   {
     "status": "success",
     "message": "User logged in successfully",
-    "token": "<token>"
+    "token": "<token>",
+    "user": {
+        "id": "<id>",
+        "username": "<username>",
+        "email": "<email>"
+    }
   }
   ```
 

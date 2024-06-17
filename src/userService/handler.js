@@ -64,41 +64,6 @@ const createUser = async (req, res) => {
   }
 };
 
-//  This function is used for testing purpose
-const getUsers = async (req, res) => {
-  try {
-    const usersSnapshot = await firestore.collection('users').get();
-      
-    if (usersSnapshot.empty) {
-      return res.status(404).json({
-        status: 'fail',
-        message: 'No users found'
-      });
-    }
-
-    const users = usersSnapshot.docs.map(doc => {
-      const data = doc.data();
-      return {
-        id: data.id,
-        username: data.username,
-        email: data.email,
-        createdAt: data.createdAt.toDate().toISOString()
-      };
-    });
-
-    return res.status(200).json({
-      status: 'success',
-      message: 'Users retrieved successfully',
-      data: users
-    });
-  } catch (error) {
-    return res.status(500).json({
-      status: 'fail',
-      message: error.message || 'Internal Server Error'
-    });
-  }
-};
-
 // Retrieve User data by id inside token payload 
 const getUserById = async (req, res) => {
   try {
@@ -248,7 +213,7 @@ const updateUserPassword = async (req, res) => {
   }
 };
 
-const deleteUser = async (req, res) => {
+const deleteUserById = async (req, res) => {
   try {
     const { id } = req.params;
     const userRef = firestore.collection('users').doc(id);
@@ -277,10 +242,9 @@ const deleteUser = async (req, res) => {
 
 module.exports = {
     createUser,
-    getUsers,
     getUserById,
     updateUsername,
     updateUserEmail,
     updateUserPassword,
-    deleteUser
+    deleteUserById
 };

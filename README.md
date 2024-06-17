@@ -35,34 +35,6 @@ The token is created using JWT and has user_id as the payload
   }
   ```
 
-### Get All Users
-- Method: GET
-- Path: `/users`
-- Description: Retrieve all users data.
-- Response Body:
-
-  ```json
-  {
-    "status": "success",
-    "message": "Users retrieved successfully",
-    "data": [
-        {
-            "id": "<id>",
-            "username": "<username>",
-            "email": "<email>",
-            "createdAt": "<createdAt>"
-        },
-        {
-            "id": "<id>",
-            "username": "<username>",
-            "email": "<email>",
-            "createdAt": "<createdAt>"
-        },
-        ...
-    ]
-  }
-  ```
-
 ### Get User by Id
 - Method: GET
 - Path: `users/{id}`
@@ -154,7 +126,7 @@ Value : (token)
   }
   ```
 
-### Delete User
+### Delete User by Id
 - Method: DELETE
 - Path: `/users/{id}`
 - Description: Delete user from database based on the id.

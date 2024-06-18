@@ -1,5 +1,14 @@
 const crypto = require('crypto');
 const { firestore } = require('../firebase');
+const { Storage } = require('@google-cloud/storage');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+const BUCKET_NAME = process.env.BUCKET_NAME;
+
+const storage = new Storage();
+const bucket = storage.bucket(BUCKET_NAME);
 
 // User data will be stored inside Firebase Firestore
 const createUser = async (req, res) => {
@@ -226,6 +235,17 @@ const deleteUserById = async (req, res) => {
       });
     }
 
+    // Delete user history from Firestore
+    const historySnapshot = await firestore.collection('histories').where('userId', '==', id).get();
+    const batch = firestore.batch();
+    historySnapshot.forEach(doc => {
+      batch.delete(doc.ref);
+    });
+    await batch.commit();
+
+    // Delete user's folder from Cloud Storage
+    await deleteFolderFromBucket(id);
+
     await userRef.delete();
 
     return res.status(200).json({
@@ -238,6 +258,12 @@ const deleteUserById = async (req, res) => {
       message: error.message || 'Internal Server Error'
     });
   }
+};
+
+const deleteFolderFromBucket = async (folderName) => {
+  const [files] = await bucket.getFiles({ prefix: `${folderName}/` });
+  const deletions = files.map(file => file.delete());
+  await Promise.all(deletions);
 };
 
 module.exports = {
